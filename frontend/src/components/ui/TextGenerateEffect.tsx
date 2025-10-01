@@ -16,8 +16,8 @@ export const TextGenerateEffect = ({
 }) => {
   const [scope, animate] = useAnimate();
   const wordsArray = words.split(" ");
-  const randomIndex = Math.floor(Math.random() * wordsArray.length+1) ;
-  console.log(randomIndex)
+  const highlightWords = ["clean", "code", "creative", "design"];
+
   useEffect(() => {
     animate(
       "span",
@@ -40,7 +40,7 @@ export const TextGenerateEffect = ({
             <motion.span
               key={word + idx}
               className={`${
-                idx % randomIndex ? "text-purple-300" : "dark:text-white text-black"
+                highlightWords.includes(word.toLowerCase()) ? "text-purple-300" : "dark:text-white text-black"
               } opacity-0`}
               style={{
                 filter: filter ? "blur(10px)" : "none",
