@@ -7,7 +7,7 @@ import { FaLocationArrow } from "react-icons/fa";
 
 export default function Hero() {
   return (
-    <section className="pb-20 pt-36 ">
+    <section className="pb-20 pt-36">
       <AuroraBackground >
         <BackgroundRippleEffect />
         <div className="flex justify-center relative my-20 z-10">
@@ -20,7 +20,7 @@ export default function Hero() {
               words="Transforming concepts into seamless digital experiences with clean code and creative design"
             />
             <h2 className="uppercase text-xs text-center text-blue-100 max-w-80 tracking-widest">
-              Dynamic Web Magic with Next.js
+              DYNAMIC | DEDICATED 
             </h2>
             <MagicButton
               title="Show my work"

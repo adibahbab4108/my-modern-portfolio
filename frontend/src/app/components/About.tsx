@@ -1,11 +1,11 @@
 import { BentoGrid, BentoGridItem } from "@/components/ui/BentoGrid";
-import { gridItems } from "@/data";
+import { aboutMeItems } from "@/data";
 
 export default function About() {
   return (
    <section id="about">
       <BentoGrid>
-        {gridItems.map((item, idx) => (
+        {aboutMeItems.map((item, idx) => (
           <BentoGridItem
             key={idx}
             id={idx}
