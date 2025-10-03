@@ -1,4 +1,5 @@
 import SectionHeader from "@/components/SectionHeader";
+import { AnimatedTooltip } from "@/components/ui/AnimatedTooltip";
 import { skills } from "@/data";
 import { SkillType } from "@/type";
 import Image from "next/image";
@@ -27,8 +28,10 @@ export default function Skill() {
       <SectionHeader
         title="Technologies I have worked with"
         subtitle="From backend logic to frontend finesse—here's what I build with"
+        titleClassName="bg-gradient-to-r from-blue-500 via-purple-300 to-zinc-500  bg-clip-text text-transparent"
         subtitleClassName=""
       />
+
       <div className="bg-white/5 backdrop-blur-md  rounded-3xl p-8">
         {skillRows.map((row, rowIdx) => (
           <div
@@ -36,18 +39,19 @@ export default function Skill() {
             className={`flex justify-between  gap-4 px-4 mb-4 flex-wrap `}
           >
             {row.map((skill, idx) => (
-              <div
-                key={idx}
-                className="flex p-4 border items-center border-zinc-700 rounded-full "
-              >
-                <Image
-                  src={skill.img}
-                  alt={skill.name}
-                  width={60}
-                  height={60}
-                  className={`${skill.imgClasses}`}
-                />
-              </div>
+              // <div
+              //   key={idx}
+              //   className="flex p-4 border items-center border-zinc-700 rounded-full "
+              // >
+              //   <Image
+              //     src={skill.image}
+              //     alt={skill.name}
+              //     width={60}
+              //     height={60}
+              //     className={`${skill.imageClass}`}
+              //   />
+              // </div>
+              <AnimatedTooltip key={idx} {...skill} />
             ))}
           </div>
         ))}

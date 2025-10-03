@@ -5,7 +5,7 @@ export default function SectionHeader({
   subtitleClassName
 }: {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   titleClassName?: string;
   subtitleClassName?: string;
 }) {

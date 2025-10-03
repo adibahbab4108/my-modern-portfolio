@@ -17,6 +17,11 @@ import { FaHome } from "react-icons/fa";
       icon:<FaHome/>
     },
     {
+      name:"Project",
+      link:"#project",
+      icon:<FaHome/>
+    },
+    {
       name:"Blog",
       link:"/blog",
       icon:<FaHome/>
@@ -30,10 +35,10 @@ export const aboutMeItems = [
     description:
       "As a full-stack developer, I architect secure, modular systems and craft intuitive interfaces—delivering seamless, scalable experiences from backend logic to branded frontend design",
     className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
-    imgClassName: "w-full h-full",
+    imageClassName: "w-full h-full",
     titleClassName: "justify-end",
-    img: "/b1.svg",
-    spareImg: "",
+    image: "/b1.svg",
+    spareimage: "",
   },
   {
     id: 2,
@@ -41,20 +46,20 @@ export const aboutMeItems = [
     description:
       "Modular architecture, clean Git workflows, and expressive documentation—clarity drives every decision.",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
-    imgClassName: "w-full h-full",
+    imageClassName: "w-full h-full",
     titleClassName: "justify-center ",
-    img: "/bg.png",
-    spareImg: "/grid.svg",
+    image: "/bg.png",
+    spareimage: "/grid.svg",
   },
   {
     id: 3,
     title: "Tech enthusiast with a passion for development.",
     description: "Fueled by curiosity and a passion for development, I constantly explore new tools and frameworks to craft scalable, intuitive digital experiences that push the boundaries of modern web.",
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
-    imgClassName: "",
+    imageClassName: "",
     titleClassName: "justify-start",
-    img: "",
-    spareImg: "",
+    image: "",
+    spareimage: "",
   },
 
   {
@@ -63,10 +68,10 @@ export const aboutMeItems = [
     description:
       "Diving deep into the latest Next.js features — App Router, Server Actions & optimized performance.",
     className: "md:col-span-3 md:row-span-2",
-    imgClassName: "absolute right-0 bottom-0 md:w-96 w-60 opacity-40",
+    imageClassName: "absolute right-0 bottom-0 md:w-96 w-60 opacity-40",
     titleClassName: "justify-center",
-    img: "/codingbg.png",
-    spareImg: "/grid.svg",
+    image: "/codingbg.png",
+    spareimage: "/grid.svg",
   },
   {
     id: 5,
@@ -74,10 +79,10 @@ export const aboutMeItems = [
     description:
       "Open communication, timezone flexibility, and a shared vision—because great products are built together.",
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
-    imgClassName: " opacity-40",
+    imageClassName: " opacity-40",
     titleClassName: "justify-center text-center",
-    img: "/collaborationbg.png",
-    spareImg: "",
+    image: "/collaborationbg.png",
+    spareimage: "",
   },
   {
     id: 6,
@@ -85,10 +90,10 @@ export const aboutMeItems = [
     description:
       "Open to collaborations in modern Web Development Let's make something great.",
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
-    imgClassName: "",
+    imageClassName: "",
     titleClassName: "justify-center text-center",
-    img: "",
-    spareImg: "",
+    image: "",
+    spareimage: "",
   },
 ];
 
@@ -97,7 +102,7 @@ export const projects = [
     id: 1,
     title: "3D Solar System Planets to Explore",
     des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
-    img: "/p1.svg",
+    image: "/p1.svg",
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
     link: "https://github.com/adrianhajdin?tab=repositories",
   },
@@ -105,7 +110,7 @@ export const projects = [
     id: 2,
     title: "Yoom - Video Conferencing App",
     des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
-    img: "/p2.svg",
+    image: "/p2.svg",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
     link: "https://github.com/adrianhajdin/zoom-clone",
   },
@@ -113,7 +118,7 @@ export const projects = [
     id: 3,
     title: "AI Image SaaS - Canva Application",
     des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
-    img: "/p3.svg",
+    image: "/p3.svg",
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
     link: "https://github.com/adrianhajdin/ai_saas_app",
   },
@@ -121,7 +126,7 @@ export const projects = [
     id: 4,
     title: "Animated Apple Iphone 3D Website",
     des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
-    img: "/p4.svg",
+    image: "/p4.svg",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
     link: "https://github.com/adrianhajdin/iphone",
   },
@@ -165,28 +170,28 @@ export const skills = [
   {
     id: 1,
     name: "JavaScript",
-    img: "/javascript.svg",
+    image: "/javascript.svg",
     category: "Fullstack",
     level: "Advanced",
   },
   {
     id: 2,
     name: "TypeScript",
-    img: "/typescript.svg",
+    image: "/typescript.svg",
     category: "Fullstack",
     level: "Intermediate",
   },
   {
     id: 3,
     name: "HTML5",
-    img: "/html5.svg",
+    image: "/html5.svg",
     category: "Frontend",
     level: "Advanced",
   },
   {
     id: 4,
     name: "CSS3",
-    img: "css3.svg",
+    image: "css3.svg",
     category: "Frontend",
     level: "Advanced",
   },
@@ -195,52 +200,52 @@ export const skills = [
   {
     id: 5,
     name: "React.js",
-    img: "/reactjs.svg",
+    image: "/reactjs.svg",
     category: "Frontend",
     level: "Advanced",
   },
   {
     id: 6,
     name: "Next.js",
-    img: "/nextjs.svg",
+    image: "/nextjs.svg",
     category: "Frontend",
     level: "Intermediate",
   },
   {
     id: 7,
     name: "Tailwind CSS",
-    img: "/tailwindcss.svg",
+    image: "/tailwindcss.svg",
     category: "Frontend",
     level: "Advanced",
   },
   {
     id: 8,
     name: "Redux Toolkit",
-    img: "/redux.svg",
+    image: "/redux.svg",
     category: "Frontend",
     level: "Intermediate",
   },
   {
     id: 9,
     name: "shadcn/ui",
-    img: "/shadcn.svg",
+    image: "/shadcn.svg",
     category: "Frontend",
     level: "Beginner",
-    imgClasses:"rounded-sm"
+    imageClasses:"rounded-sm"
   },
 
   // 🟧 Backend Development
   {
     id: 10,
     name: "Node.js",
-    img: "/nodejs.svg",
+    image: "/nodejs.svg",
     category: "Backend",
     level: "Intermediate",
   },
   {
     id: 11,
     name: "Express.js",
-    img: "/expressjs.svg",
+    image: "/expressjs.svg",
     category: "Backend",
     level: "Intermediate",
   },
@@ -249,28 +254,28 @@ export const skills = [
   {
     id: 12,
     name: "MongoDB",
-    img: "/mongodb.svg",
+    image: "/mongodb.svg",
     category: "Database",
     level: "Intermediate",
   },
   {
     id: 13,
     name: "Mongoose",
-    img: "/mongoose.svg",
+    image: "/mongoose.svg",
     category: "Database",
     level: "Intermediate",
   },
   {
     id: 14,
     name: "PostgreSQL",
-    img: "/postgresql.svg",
+    image: "/postgresql.svg",
     category: "Database",
     level: "Beginner",
   },
   {
     id: 15,
     name: "Prisma",
-    img: "/prisma.svg",
+    image: "/prisma.svg",
     category: "Database",
     level: "Beginner",
   },
@@ -279,43 +284,43 @@ export const skills = [
   {
     id: 16,
     name: "Git",
-    img: "/git.svg",
+    image: "/git.svg",
     category: "Tool",
     level: "Intermediate",
   },
   {
     id: 17,
     name: "GitHub",
-    img: "/github.svg",
+    image: "/github.svg",
     category: "Tool",
     level: "Intermediate",
   },
   {
     id: 18,
     name: "Firebase",
-    img: "/firebase.svg",
+    image: "/firebase.svg",
     category: "Tool",
     level: "Intermediate",
   },
   {
     id: 19,
     name: "Stripe",
-    img: "/stripe.svg",
+    image: "/stripe.svg",
     category: "Tool",
     level: "Beginner",
   },
   {
     id: 20,
     name: "SSLCommerz",
-    img: "/sslcommerz.svg",
+    image: "/sslcommerz.svg",
     category: "Tool",
     level: "Beginner",
-    imgClasses:"w-20 h-10"
+    imageClasses:"w-20 h-10"
   },
   {
     id: 21,
     name: "Vercel",
-    img: "/vercel.svg",
+    image: "/vercel.svg",
     category: "Tool",
     level: "Intermediate",
   },
@@ -357,14 +362,14 @@ export const workExperience = [
 export const socialMedia = [
   {
     id: 1,
-    img: "/git.svg",
+    image: "/git.svg",
   },
   {
     id: 2,
-    img: "/twit.svg",
+    image: "/twit.svg",
   },
   {
     id: 3,
-    img: "/link.svg",
+    image: "/link.svg",
   },
 ];
