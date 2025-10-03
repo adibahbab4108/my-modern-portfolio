@@ -226,6 +226,7 @@ export const skills = [
     img: "/shadcn.svg",
     category: "Frontend",
     level: "Beginner",
+    imgClasses:"rounded-sm"
   },
 
   // 🟧 Backend Development
@@ -299,31 +300,26 @@ export const skills = [
   {
     id: 19,
     name: "Stripe",
-    img: "/skills/stripe.svg",
+    img: "/stripe.svg",
     category: "Tool",
     level: "Beginner",
   },
   {
     id: 20,
     name: "SSLCommerz",
-    img: "/skills/stripe.svg",
+    img: "/sslcommerz.svg",
     category: "Tool",
     level: "Beginner",
+    imgClasses:"w-20 h-10"
   },
   {
     id: 21,
     name: "Vercel",
-    img: "/skills/vercel.svg",
+    img: "/vercel.svg",
     category: "Tool",
     level: "Intermediate",
   },
-  {
-    id: 20,
-    name: "Docker",
-    img: "/skills/docker.svg",
-    category: "Tool",
-    level: "Beginner",
-  },
+  
 ];
 
 

@@ -1,3 +1,4 @@
+import SectionHeader from "@/components/SectionHeader";
 import { skills } from "@/data";
 import { SkillType } from "@/type";
 import Image from "next/image";
@@ -23,15 +24,34 @@ export default function Skill() {
 
   return (
     <div id="skill" className="pb-20 pt-36">
-      {skillRows.map((row, rowIdx) => (
-        <div key={rowIdx} className={`flex justify-between  gap-4 px-4 mb-4 flex-wrap `}>
-          {row.map((skill, idx) => (
-            <div key={idx} className="flex p-4 border border-zinc-700 rounded-full ">
-              <Image src={skill.img} alt={skill.name} width={60} height={60} />
-            </div>
-          ))}
-        </div>
-      ))}
+      <SectionHeader
+        title="Technologies I have worked with"
+        subtitle="From backend logic to frontend finesse—here's what I build with"
+        subtitleClassName=""
+      />
+      <div className="bg-white/5 backdrop-blur-md  rounded-3xl p-8">
+        {skillRows.map((row, rowIdx) => (
+          <div
+            key={rowIdx}
+            className={`flex justify-between  gap-4 px-4 mb-4 flex-wrap `}
+          >
+            {row.map((skill, idx) => (
+              <div
+                key={idx}
+                className="flex p-4 border items-center border-zinc-700 rounded-full "
+              >
+                <Image
+                  src={skill.img}
+                  alt={skill.name}
+                  width={60}
+                  height={60}
+                  className={`${skill.imgClasses}`}
+                />
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

@@ -1,23 +1,25 @@
 @import "tailwindcss";
 
-@theme inline {
-  --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
-}
- 
-@keyframes spotlight {
-  0% {
-    opacity: 0;
-    transform: translate(-72%, -62%) scale(0.5);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(-50%, -40%) scale(1);
-  }
+@theme{
+  --color-primary: oklch(.827 .119 306.383);
 }
 
 @theme inline {
+  --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
   --animate-cell-ripple: cell-ripple var(--duration, 200ms) ease-out none 1
     var(--delay, 0ms);
+  --animate-aurora: aurora 60s linear infinite;
+
+  @keyframes spotlight {
+    0% {
+      opacity: 0;
+      transform: translate(-72%, -62%) scale(0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, -40%) scale(1);
+    }
+  }
 
   @keyframes cell-ripple {
     0% {
@@ -30,22 +32,13 @@
       opacity: 0.4;
     }
   }
-}
 
-
-@theme inline {
-  --animate-aurora: aurora 60s linear infinite;
   @keyframes aurora {
     from {
-      background-position:
-        50% 50%,
-        50% 50%;
+      background-position: 50% 50%, 50% 50%;
     }
     to {
-      background-position:
-        350% 50%,
-        350% 50%;
+      background-position: 350% 50%, 350% 50%;
     }
   }
 }
-
