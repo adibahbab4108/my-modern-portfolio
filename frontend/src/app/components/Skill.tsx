@@ -1,8 +1,8 @@
 import SectionHeader from "@/components/SectionHeader";
+import SkillSetCard from "@/components/Skill/SkillSetCard";
 import { AnimatedTooltip } from "@/components/ui/AnimatedTooltip";
 import { skills } from "@/data";
 import { SkillType } from "@/type";
-import Image from "next/image";
 
 export default function Skill() {
   const rowPattern = [6, 5, 4, 3]; // You can extend or loop this pattern if needed
@@ -39,18 +39,10 @@ export default function Skill() {
             className={`flex justify-between  gap-4 px-4 mb-4 flex-wrap `}
           >
             {row.map((skill, idx) => (
-              // <div
-              //   key={idx}
-              //   className="flex p-4 border items-center border-zinc-700 rounded-full "
-              // >
-              //   <Image
-              //     src={skill.image}
-              //     alt={skill.name}
-              //     width={60}
-              //     height={60}
-              //     className={`${skill.imageClass}`}
-              //   />
-              // </div>
+              // without tooltip
+              // <SkillSetCard key={idx} {...skill} />
+
+              // with tooltip
               <AnimatedTooltip key={idx} {...skill} />
             ))}
           </div>

@@ -38,7 +38,7 @@ export const aboutMeItems = [
     imageClassName: "w-full h-full",
     titleClassName: "justify-end",
     image: "/b1.svg",
-    spareimage: "",
+    sparseImage: "",
   },
   {
     id: 2,
@@ -49,7 +49,7 @@ export const aboutMeItems = [
     imageClassName: "w-full h-full",
     titleClassName: "justify-center ",
     image: "/bg.png",
-    spareimage: "/grid.svg",
+    sparseImage: "/grid.svg",
   },
   {
     id: 3,
@@ -59,7 +59,7 @@ export const aboutMeItems = [
     imageClassName: "",
     titleClassName: "justify-start",
     image: "",
-    spareimage: "",
+    sparseImage: "",
   },
 
   {
@@ -71,7 +71,7 @@ export const aboutMeItems = [
     imageClassName: "absolute right-0 bottom-0 md:w-96 w-60 opacity-40",
     titleClassName: "justify-center",
     image: "/codingbg.png",
-    spareimage: "/grid.svg",
+    sparseImage: "/grid.svg",
   },
   {
     id: 5,
@@ -82,7 +82,7 @@ export const aboutMeItems = [
     imageClassName: " opacity-40",
     titleClassName: "justify-center text-center",
     image: "/collaborationbg.png",
-    spareimage: "",
+    sparseImage: "",
   },
   {
     id: 6,
@@ -93,7 +93,7 @@ export const aboutMeItems = [
     imageClassName: "",
     titleClassName: "justify-center text-center",
     image: "",
-    spareimage: "",
+    sparseImage: "",
   },
 ];
 

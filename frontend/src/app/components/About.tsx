@@ -12,10 +12,10 @@ export default function About() {
             title={item.title}
             description={item.description}
             className={item.className}
-            img={item.img}
-            imgClassName={item.imgClassName}
+            img={item.image}
+            imgClassName={item.imageClassName}
             titleClassName={item.titleClassName}
-            spareImg={item.spareImg}
+            spareImg={item.sparseImage}
           />
         ))}
       </BentoGrid>
