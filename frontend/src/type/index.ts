@@ -1,10 +1,34 @@
+export type AboutType = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  sparseImage?: string;
+  imageClassName?: string;
+  titleClassName?: string;
+  className?: string;
+};
+
 export type SkillType = {
   id: number;
   name: string;
   image: string;
-  category: string;
+  // category: string;
   level: string;
   imageClass?: string;
-  //   category: "Frontend" | "Backend" | "Database" | "Fullstack" | "DevOps" | "Tool";
+    category: "Frontend" | "Backend" | "Database" | "Fullstack" | "DevOps" | "Tool";
   //   level: "Beginner" | "Intermediate" | "Advanced";
 };
+
+export type ProjectType = {
+  id: number;
+  title: string;
+  desciption: string;
+  image: string;
+  iconLists: string[];
+  live?: string;
+  fronntend?: string;
+  backend?: string;
+  className?: string;
+};
+

@@ -42,7 +42,7 @@ export const BentoGridItem = ({
   titleClassName?: string;
   spareImg?: string;
 }) => {
-  console.log(id);
+
   return (
     <div
       className={cn(

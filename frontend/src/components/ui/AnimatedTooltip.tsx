@@ -23,6 +23,8 @@ export const AnimatedTooltip = ({
   level: string;
   imageClass?: string;
 }) => {
+
+
   const [hovered, setHovered] = useState(false);
   const springConfig = { stiffness: 100, damping: 15 };
   const x = useMotionValue(0);
@@ -89,8 +91,8 @@ export const AnimatedTooltip = ({
         onMouseMove={handleMouseMove}
         src={image}
         alt={name}
-        width={60}
-        height={60}
+        width={50}
+        height={50}
         className={`${imageClass}`}
       />
     </div>

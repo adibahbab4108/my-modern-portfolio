@@ -5,7 +5,7 @@ import { skills } from "@/data";
 import { SkillType } from "@/type";
 
 export default function Skill() {
-  const rowPattern = [6, 5, 4, 3]; // You can extend or loop this pattern if needed
+  const rowPattern = [6, 5, 4, 3, 4];
 
   const chunkSkills = (skills: SkillType[], pattern: number[]) => {
     const rows = [];
@@ -28,7 +28,7 @@ export default function Skill() {
       <SectionHeader
         title="Technologies I have worked with"
         subtitle="From backend logic to frontend finesse—here's what I build with"
-        titleClassName="bg-gradient-to-r from-blue-500 via-purple-300 to-zinc-500  bg-clip-text text-transparent"
+        titleClassName="bg-gradient-to-r from-blue-500 via-primary to-zinc-500  bg-clip-text text-transparent"
         subtitleClassName=""
       />
 

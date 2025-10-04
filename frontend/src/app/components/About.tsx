@@ -3,7 +3,7 @@ import { aboutMeItems } from "@/data";
 
 export default function About() {
   return (
-   <section id="about">
+   <section id="about" className="pt-36 pb-20">
       <BentoGrid>
         {aboutMeItems.map((item, idx) => (
           <BentoGridItem
