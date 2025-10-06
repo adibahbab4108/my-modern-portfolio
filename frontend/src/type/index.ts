@@ -1,3 +1,5 @@
+import { Url } from "url";
+
 export type AboutType = {
   id: number;
   title: string;
@@ -23,11 +25,11 @@ export type SkillType = {
 export type ProjectType = {
   id: number;
   title: string;
-  desciption: string;
+  description: string;
   image: string;
-  iconLists: string[];
+  techStack: string[];
   live?: string;
-  fronntend?: string;
+  frontend?: string;
   backend?: string;
   className?: string;
 };

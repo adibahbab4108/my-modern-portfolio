@@ -7,10 +7,10 @@ import { FaLocationArrow } from "react-icons/fa";
 
 export default function Hero() {
   return (
-    <section className="pb-20 pt-36">
+    <section className="pb-20 pt-36 ">
       <AuroraBackground >
         <BackgroundRippleEffect />
-        <div className="flex justify-center relative my-20 z-10">
+        <div className="flex justify-center relative my-20">
           <div className="flex flex-col text-center justify-center items-center max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] ">
             <p className="uppercase text-center dark:text-blue-100 md:tracking-widest mb-4 text-sm md:text-lg lg:text-2xl">
               Hi, I&apos;m Adib

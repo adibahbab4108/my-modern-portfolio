@@ -63,7 +63,6 @@ export const aboutMeItems: AboutType[] = [
     image: "",
     sparseImage: "",
   },
-
   {
     id: 4,
     title: "Currently Exploring Next.js 15",
@@ -72,9 +71,10 @@ export const aboutMeItems: AboutType[] = [
     className: "md:col-span-3 md:row-span-2",
     imageClassName: "absolute right-0 bottom-0 md:w-96 w-60 opacity-40",
     titleClassName: "justify-center",
-    image: "/bg/codingbg.png",
+    image: "/bg/codingbg.svg",
     sparseImage: "/grid.svg",
   },
+
   {
     id: 5,
     title: "Collaboration First",
@@ -83,7 +83,7 @@ export const aboutMeItems: AboutType[] = [
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
     imageClassName: " opacity-40",
     titleClassName: "justify-center text-center",
-    image: "/bg/collaborationbg.png",
+    image: "/bg/collaborationbg.svg",
     sparseImage: "",
   },
   {
@@ -103,25 +103,44 @@ export const projects: ProjectType[] = [
   {
     id: 1,
     title: "Digital Wallet System",
-    desciption:
+    description:
       "A secure and scalable digital wallet system built with Node.js, Express, TypeScript, and MongoDB, featuring role-based access (Admin, User, Agent), JWT authentication, automatic wallet creation, and complete money transaction features.",
     image: "/projects/DigitalWallet.svg",
-    iconLists: [
-      "javascript.svg",
-      "/typescript.svg",
-      "/tailwindcss.svg",
-      "shadcn.svg",
-      "reactjs.svg",
-      "/expressjs.svg",
-      "/mongoose.svg",
-      "/jwt.svg",
-      "zod.svg",
+    techStack: [
+      "/icons/javascript.svg",
+      "/icons/typescript.svg",
+      "/icons/tailwindcss.svg",
+      "/icons/shadcn.svg",
+      "/icons/reactjs.svg",
+      "/icons/expressjs.svg",
+      "/icons/mongoose.svg",
+      "/icons/jwt.svg",
+      "/icons/zod.svg",
     ],
+    className: "col-span-12 md:col-span-6",
     live: "https://digital-wallet-system-frontend-green.vercel.app/",
-    fronntend:
-      "https://github.com/adibahbab4108/digital-wallet-system-frontend",
+    frontend: "https://github.com/adibahbab4108/digital-wallet-system-frontend",
     backend: "https://github.com/adibahbab4108/digital-wallet-system",
-    className: "",
+  },
+  {
+    id: 2,
+    title: "Employee Management System",
+    description:
+      "This is a full-stack web application designed to manage employees, HR, and admin roles. It includes features like user authentication, role-based dashboards, task management, payment history, and payroll management. The project is built using React for the frontend, Firebase for authentication and database.",
+    image: "/projects/EmployeeManagement.svg",
+    techStack: [
+      "/icons/javascript.svg",
+      "/icons/tailwindcss.svg",
+      "/icons/reactjs.svg",
+      "/icons/expressjs.svg",
+      "/icons/mongodb.svg",
+      "/icons/jwt.svg",
+    ],
+    className: "col-span-12 md:col-span-6",
+    live: "https://employee-management-3e084.web.app",
+    frontend: "https://github.com/adibahbab4108/employee-management-system",
+    backend:
+      "https://github.com/adibahbab4108/employee-management-system-backend",
   },
 ];
 
@@ -203,6 +222,7 @@ export const skills: SkillType[] = [
     image: "/icons/nextjs.svg",
     category: "Fullstack",
     level: "Beginner",
+    imageClass: "dark:bg-white p-1 rounded-lg",
   },
   {
     id: 7,
@@ -241,6 +261,7 @@ export const skills: SkillType[] = [
     image: "/icons/expressjs.svg",
     category: "Backend",
     level: "Intermediate",
+    imageClass: "dark:bg-white p-1 rounded-lg",
   },
 
   // 🟠 Databases
@@ -271,6 +292,7 @@ export const skills: SkillType[] = [
     image: "/icons/prisma.svg",
     category: "Database",
     level: "Beginner",
+    imageClass: "dark:bg-white p-1 rounded-lg",
   },
 
   // 🟣 Tools
@@ -280,6 +302,7 @@ export const skills: SkillType[] = [
     image: "/icons/git.svg",
     category: "Tool",
     level: "Intermediate",
+    imageClass: "dark:bg-white p-1 rounded-lg",
   },
   {
     id: 17,
@@ -287,6 +310,7 @@ export const skills: SkillType[] = [
     image: "/icons/github.svg",
     category: "Tool",
     level: "Intermediate",
+    imageClass: "dark:bg-white p-1 rounded-lg",
   },
   {
     id: 18,
@@ -316,6 +340,7 @@ export const skills: SkillType[] = [
     image: "/icons/vercel.svg",
     category: "Tool",
     level: "Intermediate",
+    imageClass: "dark:bg-white p-1 rounded-lg",
   },
   {
     id: 22,
