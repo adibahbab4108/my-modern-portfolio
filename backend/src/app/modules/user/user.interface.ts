@@ -14,6 +14,10 @@ export enum UserStatus {
   INACTIVE = "INACTIVE",
   BANNED = "BANNED",
 }
+export interface IAuthProvider {
+  provider: AuthProvider;
+  providerId: string;
+} 
 export interface IUser {
   _id: Types.ObjectId;
   email: string;
@@ -27,7 +31,7 @@ export interface IUser {
   isDeleted: boolean;
   isVerified: boolean;
 
-  authProvider: AuthProvider;
+  authProvider: IAuthProvider[];
   status: UserStatus;
   blogs: Types.ObjectId[];
   createdAt: Date;
