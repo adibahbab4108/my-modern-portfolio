@@ -12,12 +12,10 @@ const createUser = async (payload: Partial<IUser>) => {
     throw new Error("User already exists with this email");
   }
 
-  let hashedPassword;
-  if (password)
-    hashedPassword = await bcrypt.hash(
-      password as string,
-      Number(envVariables.BCRYPT_SALT_ROUNDS)
-    );
+  const hashedPassword = await bcrypt.hash(
+    password as string,
+    Number(envVariables.BCRYPT_SALT_ROUNDS)
+  );
 
   const authProvider: IAuthProvider = {
     provider: AuthProvider.CREDENTIAL,
@@ -27,7 +25,7 @@ const createUser = async (payload: Partial<IUser>) => {
   const user = await User.create({
     email,
     password: hashedPassword,
-    auths: [authProvider],
+    authProvider:[authProvider],
     ...rest,
   });
 
@@ -35,7 +33,10 @@ const createUser = async (payload: Partial<IUser>) => {
     throw new Error("User creation failed");
   }
 
-  return user;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { password: _password, ...userData } = user.toObject();
+
+  return userData;
 };
 
 export const UserService = {

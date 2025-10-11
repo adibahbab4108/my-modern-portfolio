@@ -5,7 +5,7 @@ const UserSchema = new Schema<IUser>(
   {
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    name: { type: String  },
+    name: { type: String },
     role: { type: String, enum: Object.values(Role), default: Role.USER },
     pictureUrl: { type: String },
     address: { type: String },
@@ -13,10 +13,17 @@ const UserSchema = new Schema<IUser>(
     isActive: { type: Boolean, default: true },
     isDeleted: { type: Boolean, default: false },
     isVerified: { type: Boolean, default: false },
-    authProvider: {
-      type: String,
-      enum: Object.values(AuthProvider),
-    },
+    authProvider: [
+      {
+        provider: {
+          type: String,
+          enum: Object.values(AuthProvider),
+          required: true,
+        },
+        providerId: { type: String, required: true },
+        _id: false,
+      },
+    ],
     status: {
       type: String,
       enum: Object.values(UserStatus),
