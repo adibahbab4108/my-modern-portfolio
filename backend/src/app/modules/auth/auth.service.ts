@@ -1,6 +1,7 @@
 import { User } from "../user/user.model";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
+import jwt, { SignOptions } from "jsonwebtoken";
+import envVariables from "../../config/env.config";
 
 const loginWithCredentials = async (payload: {
   email: string;
@@ -18,7 +19,6 @@ const loginWithCredentials = async (payload: {
     user.password
   );
 
-
   if (!isPasswordMatched) throw new Error("Password is incorrect");
 
   const jwtPayload = {
@@ -26,10 +26,13 @@ const loginWithCredentials = async (payload: {
     email: user.email,
     role: user.role,
   };
-  const accessToken = jwt.sign(jwtPayload, "secret",{ expiresIn: "1d" });
-  console.log(accessToken);
+  const accessToken = jwt.sign(jwtPayload, envVariables.JWT_ACCESS_SECRET, {
+    expiresIn: envVariables.JWT_ACCESS_EXPIRES_IN,
+  } as SignOptions);
+
   return { accessToken };
 };
+
 
 export const AuthService = {
   loginWithCredentials,

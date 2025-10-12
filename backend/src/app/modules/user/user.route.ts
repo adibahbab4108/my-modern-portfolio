@@ -2,6 +2,8 @@ import { Router } from "express";
 import validateRequest from "../../middleware/ValidateRequest";
 import { createUserZodSchema } from "./user.validatation";
 import { UserController } from "./user.controller";
+import { checkAuth } from "../../middleware/CheckAuth";
+import { Role } from "./user.interface";
 
 const userRouter = Router();
 
@@ -12,8 +14,8 @@ userRouter.post(
 );
 userRouter.post(
   "/",
+  checkAuth(Role.ADMIN, Role.SUPER_ADMIN),
   UserController.getUsers
 );
-
 
 export default userRouter;
