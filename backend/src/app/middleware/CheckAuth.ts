@@ -46,7 +46,7 @@ export const checkAuth =
         throw new Error("You are not authorized to access this route");
       }
 
-    //   req.user = decodedToken;
+      req.user = decodedToken; // added user(customized property) info to req object for further usage.
       next();
     } catch (error) {
       next(error);
