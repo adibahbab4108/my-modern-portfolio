@@ -22,7 +22,7 @@ export interface IAuthProvider {
   providerId: string;
 } 
 export interface IUser {
-  _id: Types.ObjectId;
+  _id?: Types.ObjectId;
   email: string;
   password: string;
   name?: string;
@@ -30,13 +30,13 @@ export interface IUser {
   pictureUrl?: string;
   address?: string;
   phoneNumber?: string;
-  isActive: boolean;
-  isDeleted: boolean;
-  isVerified: boolean;
+  isActive?: boolean;
+  isDeleted?: boolean;
+  isVerified?: boolean;
 
   authProvider: IAuthProvider[];
-  status: UserStatus;
-  blogs: Types.ObjectId[];
-  createdAt: Date;
-  updatedAt: Date;
+  status?: UserStatus;
+  blogs?: Types.ObjectId[];
+  createdAt?: Date;
+  updatedAt?: Date;
 }
