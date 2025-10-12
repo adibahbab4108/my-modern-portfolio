@@ -25,7 +25,7 @@ const createUser = async (payload: Partial<IUser>) => {
   const user = await User.create({
     email,
     password: hashedPassword,
-    authProvider:[authProvider],
+    authProvider: [authProvider],
     ...rest,
   });
 
@@ -38,7 +38,12 @@ const createUser = async (payload: Partial<IUser>) => {
 
   return userData;
 };
+const getUsers = async () => {
+  const users = await User.find();
+  return users;
+}
 
 export const UserService = {
   createUser,
+  getUsers
 };

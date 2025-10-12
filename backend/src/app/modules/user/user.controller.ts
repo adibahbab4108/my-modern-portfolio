@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import { UserService } from "./user.service";
 import { sendResponse } from "../../utils/sendResponse";
+import { UserService } from "./user.service";
 
 const createUser = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -16,7 +16,21 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
     next(error);
   }
 };
+const getUsers = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const users = await UserService.getUsers();
+    sendResponse(res, {
+      statusCode: 200,
+      success: true,
+      message: "Users retrieved successfully",
+      data: users,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
 
 export const UserController = {
   createUser,
+  getUsers
 };
