@@ -5,12 +5,22 @@ import cookieParser from "cookie-parser";
 import { globalErrorHandler } from "./app/middleware/GlobalErrorHandler";
 import { sendResponse } from "./app/utils/sendResponse";
 import authRouter from "./app/modules/auth/auth.route";
+import passport from "passport";
+import expressSession from "express-session";
+import "./app/config/passport.config"
+import envVariables from "./app/config/env.config";
 const app = express();
 
-
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin:envVariables.FRONTEND_URL,
+  credentials:true
+}));
 app.use(cookieParser())
+
+app.use(expressSession({ secret: 'your_secret', resave: false, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Application routes
 app.use("/api/v1/users", userRouter);

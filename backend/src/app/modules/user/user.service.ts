@@ -5,6 +5,9 @@ import bcrypt from "bcrypt";
 
 const createUser = async (payload: Partial<IUser>) => {
   const { email, password, ...rest } = payload;
+  
+  if (!email) throw new Error("Email is required");
+  if (!password) throw new Error("password is required");
 
   const isUserExists = await User.findOne({ email });
 
@@ -41,9 +44,9 @@ const createUser = async (payload: Partial<IUser>) => {
 const getUsers = async () => {
   const users = await User.find();
   return users;
-}
+};
 
 export const UserService = {
   createUser,
-  getUsers
+  getUsers,
 };

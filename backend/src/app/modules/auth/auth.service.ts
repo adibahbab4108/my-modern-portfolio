@@ -1,6 +1,9 @@
 import { User } from "../user/user.model";
 import bcrypt from "bcrypt";
-import { generateUserToken } from "../../utils/generateUserToken";
+import {
+  generateAccessToken,
+  generateUserToken,
+} from "../../utils/generateUserToken";
 import { verifyToken } from "../../utils/jwt";
 import envVariables from "../../config/env.config";
 import { UserStatus } from "../user/user.interface";
@@ -9,27 +12,23 @@ const loginWithCredentials = async (payload: {
   email: string;
   password: string;
 }) => {
+  if (!payload.email || !payload.password) {
+    throw new Error("Email and password are required");
+  }
   const user = await User.findOne({ email: payload.email, isDeleted: false });
 
   if (!user) throw new Error("User does not exist");
 
-  if (!payload.email || !payload.password)
-    throw new Error("Email and password are required");
+  if (user.password) {
+    const isPasswordMatched = await bcrypt.compare(
+      payload.password,
+      user.password
+    );
 
-  const isPasswordMatched = await bcrypt.compare(
-    payload.password,
-    user.password
-  );
+    if (!isPasswordMatched) throw new Error("Password is incorrect");
+  }
 
-  if (!isPasswordMatched) throw new Error("Password is incorrect");
-
-  const jwtPayload = {
-    id: user._id,
-    email: user.email,
-    role: user.role,
-  };
-
-  const userToken = generateUserToken(jwtPayload);
+  const userToken = generateUserToken(user);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { password: pass, ...userData } = user.toObject();
@@ -42,7 +41,6 @@ const loginWithCredentials = async (payload: {
 };
 
 const getNewAccessToken = async (refreshToken: string) => {
-  
   if (!refreshToken) throw new Error("No refreshtoken received from cookie");
 
   const decodedToken = verifyToken(
@@ -66,13 +64,7 @@ const getNewAccessToken = async (refreshToken: string) => {
     throw new Error("User is deleted");
   }
 
-  const payloadForToken = {
-    userId: isUserExist._id,
-    email: isUserExist.email,
-    role: isUserExist.role,
-  };
-
-  const userToken = generateUserToken(payloadForToken);
+  const userToken = generateAccessToken(isUserExist);
 
   return { accessToken: userToken.accessToken };
 };

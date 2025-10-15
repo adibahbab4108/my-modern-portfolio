@@ -4,7 +4,7 @@ import { AuthProvider, IUser, Role, UserStatus } from "./user.interface";
 const UserSchema = new Schema<IUser>(
   {
     email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
+    password: { type: String },
     name: { type: String },
     role: { type: String, enum: Object.values(Role), default: Role.USER },
     pictureUrl: { type: String },
