@@ -1,11 +1,16 @@
+"use client";
 import SectionHeader from "@/components/SectionHeader";
 import SkillSetCard from "@/components/Skill/SkillSetCard";
 import { AnimatedTooltip } from "@/components/ui/AnimatedTooltip";
 import { skills } from "@/data";
+import { useWindowSize } from "@/hooks/useWindowSize";
 import { SkillType } from "@/type";
 
 export default function Skill() {
-  const rowPattern = [6, 5, 4, 3, 4];
+  const width = useWindowSize();
+  const patternMdtoLgDevice = [6, 5, 4, 3, 4, ];
+  const patternSmDevice = [4, 4, 4, 4, 4];
+  const rowPattern = width < 680 ? patternSmDevice : patternMdtoLgDevice;
 
   const chunkSkills = (skills: SkillType[], pattern: number[]) => {
     const rows = [];
