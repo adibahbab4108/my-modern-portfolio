@@ -32,7 +32,7 @@ export const navItems = [
 export const aboutMeItems: AboutType[] = [
   {
     id: 1,
-    title: "Crafting Scalable Web Experiences with Precision & Passion",
+    title: "Shaping Scalable Web Experiences with Precision & Passion",
     description:
       "As a full-stack developer, I architect secure, modular systems and craft intuitive interfaces—delivering seamless, scalable experiences from backend logic to branded frontend design",
     className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
@@ -43,7 +43,7 @@ export const aboutMeItems: AboutType[] = [
   },
   {
     id: 2,
-    title: "How I Work",
+    title: "Working Rules",
     description:
       "Modular architecture, clean Git workflows, and expressive documentation—clarity drives every decision.",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
@@ -56,7 +56,7 @@ export const aboutMeItems: AboutType[] = [
     id: 3,
     title: "Tech enthusiast with a passion for development.",
     description:
-      "Fueled by curiosity and a passion for development, I constantly explore new tools and frameworks to craft scalable, intuitive digital experiences that push the boundaries of modern web.",
+      "Fueled by curiosity and a passion for development, I constantly explore new tools and frameworks to create scalable, intuitive digital experiences that push the boundaries of modern web.",
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
     imageClassName: "",
     titleClassName: "justify-start",
@@ -162,6 +162,26 @@ export const projects: ProjectType[] = [
     live: "https://library-management-three-orpin.vercel.app",
     frontend: "https://github.com/adibahbab4108/Library-Management-Frontend",
     backend: "https://github.com/adibahbab4108/Library-api_A3B2",
+  },
+  {
+    id: 4,
+    title: "Language Exchange",
+    description:
+      "A responsive React + Firebase web app designed to connect language learners worldwide. Users can browse available courses, add their own, and discover tailored learning opportunities. Built with modular routing, toast notifications, and elegant UI components via DaisyUI and Swiper for smooth interaction. Axios powers secure data fetching, while Firebase handles authentication and real-time updates.",
+    image: "/projects/languageExchange.png",
+    techStack: [
+      "/icons/javascript.svg",
+      "/icons/tailwindcss.svg",
+      "/icons/reactjs.svg",
+      "/icons/daisyui.svg",
+      "/icons/firebase.svg",
+      "/icons/axios.jpg",
+      "/icons/jwt.svg",
+    ],
+    className: "col-span-12 md:col-span-6 lg:col-span-4",
+    live: "https://language-exchange-e55d1.web.app",
+    frontend: "https://github.com/adibahbab4108/language-exchange",
+    backend: "https://github.com/adibahbab4108/language-exchange",
   },
 ];
 
