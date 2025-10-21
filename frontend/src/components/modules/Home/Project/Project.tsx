@@ -1,4 +1,4 @@
-import ProjectCard from "@/components/Project/ProjectCard";
+import ProjectCard from "@/components/modules/Home/Project/ProjectCard";
 import SectionHeader from "@/components/SectionHeader";
 import { projects } from "@/data";
 

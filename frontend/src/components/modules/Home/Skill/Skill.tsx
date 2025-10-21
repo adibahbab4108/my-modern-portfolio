@@ -1,5 +1,6 @@
 "use client";
 import SectionHeader from "@/components/SectionHeader";
+import SkillSetCard from "@/components/modules/Home/Skill/SkillSetCard";
 import { AnimatedTooltip } from "@/components/ui/AnimatedTooltip";
 import { skills } from "@/data";
 import { SkillType } from "@/type";
@@ -30,7 +31,7 @@ export default function Skill() {
     : chunkSkills(skills, patternTwo);
 
   const handleTogglePattern = () => {
-    setTogglePattern(!togglePattern);
+    setTogglePattern(prev=>!prev);
   };
 
   return (
@@ -42,7 +43,7 @@ export default function Skill() {
         subtitleClassName=""
       />
 
-      <div className="relative bg-white/5 backdrop-blur-md  rounded-3xl p-8 mt-30">
+      <div className="relative z-20 bg-white/5 backdrop-blur-md  rounded-3xl p-8 mt-30">
         <div className=" absolute -top-5 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <button
             onClick={handleTogglePattern}
@@ -70,3 +71,5 @@ export default function Skill() {
     </div>
   );
 }
+
+
