@@ -16,6 +16,8 @@ import { Button } from "@/components/ui/button";
 import { Eye, EyeClosed } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
+import SocialLogin from "./SocialLogin";
+import HorizontalLineText from "@/components/shared/HorizontalLineText";
 
 const loginSchema = z.object({
   email: z.string().min(1, "Email is required").email("Invalid email address"),
@@ -54,7 +56,7 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="min-w-sm w-full mx-auto p-6 rounded-2xl shadow-md border">
+    <div className="min-w-sm w-full mx-auto p-6 rounded-2xl shadow-md shadow-primary  border">
       <h2 className="text-2xl font-semibold mb-6">Sign in to your account</h2>
 
       <Form {...form}>
@@ -94,7 +96,7 @@ export default function LoginForm() {
                       }
                       className="absolute right-2 top-1/2 -translate-y-1/2 p-1 rounded-md"
                     >
-                      {showPassword ? <EyeClosed/> : <Eye/>}
+                      {showPassword ? <EyeClosed /> : <Eye />}
                     </button>
                   </div>
                 </FormControl>
@@ -127,15 +129,22 @@ export default function LoginForm() {
             </a>
           </div>
 
-          <Button type="submit" className="w-full">
+          <Button type="submit" className="w-full cursor-pointer">
             Sign in
           </Button>
         </form>
       </Form>
 
       <div className="text-sm text-center mt-4">
-        Don&apos;t have an account? <Link href="/register" className="underline">Create one</Link>
+        Don&apos;t have an account?{" "}
+        <Link href="/register" className="underline">
+          Create one
+        </Link>
       </div>
+
+      <HorizontalLineText text="Or continue with" />
+
+      <SocialLogin />
     </div>
   );
 }

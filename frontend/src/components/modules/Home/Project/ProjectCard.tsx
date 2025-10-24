@@ -3,7 +3,6 @@ import Image from "next/image";
 import { BsGithub } from "react-icons/bs";
 
 export default function ProjectCard({
-  id,
   title,
   description,
   image,
@@ -15,7 +14,7 @@ export default function ProjectCard({
 }: ProjectType) {
   return (
     <div
-      className={`bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden ${className}`}
+      className={`bg-white dark:bg-gray-800 rounded-lg shadow-md z-10 overflow-hidden ${className}`}
     >
       <div className="p-4 relative">
         <Image

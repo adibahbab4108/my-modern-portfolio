@@ -1,6 +1,5 @@
 "use client";
 import SectionHeader from "@/components/SectionHeader";
-import SkillSetCard from "@/components/modules/Home/Skill/SkillSetCard";
 import { AnimatedTooltip } from "@/components/ui/AnimatedTooltip";
 import { skills } from "@/data";
 import { SkillType } from "@/type";
@@ -71,5 +70,4 @@ export default function Skill() {
     </div>
   );
 }
-
 
