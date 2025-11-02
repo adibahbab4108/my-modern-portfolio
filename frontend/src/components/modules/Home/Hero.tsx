@@ -7,7 +7,7 @@ import { FaLocationArrow } from "react-icons/fa";
 
 export default function Hero() {
   return (
-    <section className="pb-20 pt-36 ">
+    <section className="pb-20 pt-36 " suppressHydrationWarning>
       <AuroraBackground>
         <BackgroundRippleEffect />
         <div className="flex justify-center relative my-20">

@@ -86,13 +86,13 @@ export const Navbar = ({
                 <ul className="grid  gap-4">
                   <li>
                     <NavigationMenuLink asChild>
-                      <Link href="#" className="flex-row items-center gap-2">
+                      <Link href="/profile" className="flex-row items-center gap-2">
                         <UserRound />
                         Profile
                       </Link>
                     </NavigationMenuLink>
                     <NavigationMenuLink asChild>
-                      <Link href="#" className="flex-row items-center gap-2">
+                      <Link href="/dashboard" className="flex-row items-center gap-2">
                         <LayoutDashboard />
                         Dashboard
                       </Link>

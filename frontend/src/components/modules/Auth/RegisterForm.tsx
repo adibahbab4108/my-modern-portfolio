@@ -17,6 +17,9 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Eye, EyeClosed } from "lucide-react";
+import { register } from "@/actions/auth";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const registerSchema = z
   .object({
@@ -27,12 +30,13 @@ const registerSchema = z
       .email("Invalid email address"),
     password: z
       .string()
-      .min(8, "Password must be at least 8 characters")
-      .max(128),
+      .min(6, { message: "Password must be at least 6 characters" })
+      .max(20, { message: "Password must not exceed 20 characters" })
+      .regex(/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,20}$/, {
+        message:
+          "Password must contain letters, numbers, and a special character (@$!%*?&)",
+      }),
     confirmPassword: z.string().min(8, "Confirm your password"),
-    acceptTerms: z.boolean().refine((v) => v === true, {
-      message: "You must accept the terms and conditions",
-    }),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords do not match",
@@ -51,23 +55,28 @@ export default function RegisterForm() {
       email: "",
       password: "",
       confirmPassword: "",
-      acceptTerms: false,
     },
   });
+  const router = useRouter();
 
   const onSubmit = async (values: RegisterFormValues) => {
     try {
-      // Replace with real sign-up API call
-      console.log("Registering user:", values);
-      alert(`Account created for ${values.name}`);
+      const res = await register(values);
+
+      console.log("Submitted result", res);
+      if (res.success) {
+        toast.success(`${res.message}`, {
+          position: "bottom-right",
+        });
+        router.push("/login");
+      } else toast.error(`${res.message}`);
     } catch (err) {
       console.error(err);
-      // handle registration error
     }
   };
 
   return (
-    <div className="border min-w-md w-full mx-auto p-6 rounded-2xl shadow-md">
+    <div className="border min-w-sm w-full mx-auto p-6 rounded-2xl shadow-md shadow-primary">
       <h2 className="text-2xl font-semibold mb-6">Create an account</h2>
 
       <Form {...form}>
@@ -121,7 +130,7 @@ export default function RegisterForm() {
                       }
                       className="absolute right-2 top-1/2 -translate-y-1/2 p-1 rounded-md"
                     >
-                      {showPassword ? <EyeClosed/> : <Eye/>}
+                      {showPassword ? <EyeClosed /> : <Eye />}
                     </button>
                   </div>
                 </FormControl>

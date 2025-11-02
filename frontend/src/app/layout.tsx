@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/themeProvider";
 import AuthProvider from "@/providers/AuthProvider";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
+  title: "Adib Ahbab",
   description: "This is a modern and minimalistic portfolio of Md Adib Ahbab",
 };
 
@@ -29,6 +30,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Toaster richColors position="bottom-right" />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

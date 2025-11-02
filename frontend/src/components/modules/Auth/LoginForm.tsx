@@ -18,12 +18,15 @@ import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
 import SocialLogin from "./SocialLogin";
 import HorizontalLineText from "@/components/shared/HorizontalLineText";
+import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
+import { toast } from "sonner";
 
 const loginSchema = z.object({
   email: z.string().min(1, "Email is required").email("Invalid email address"),
   password: z
     .string()
-    .min(8, "Password must be at least 8 characters")
+    .min(8, "Password is too short")
     .max(128, "Password is too long"),
   remember: z.boolean().optional(),
 });
@@ -41,22 +44,39 @@ export default function LoginForm() {
       remember: false,
     },
   });
+  const router = useRouter();
 
   const onSubmit = async (values: LoginFormValues) => {
-    // Replace this with your actual login logic (API call, auth provider, etc.)
-    // Keep it minimal and safe for example purposes.
+    const toastId = toast.loading("Signing in...");
     try {
-      console.log("Submitting login:", values);
-      // example: await auth.signIn(values.email, values.password)
-      // show toast or update state on success / failure
-      alert(`Logged in as ${values.email}`);
+      // const result = await login(values);
+      // if (result.success) {
+      //   toast.success(`${result.message}`);
+      //   router.push("/");
+      // } else {
+      //   toast.error(`${result.message}`);
+      // }
+      // console.log(result);
+
+      const res = await signIn("credentials", {
+        ...values,
+        // callbackUrl: "/", // redirect to "/" after successful login
+        redirect: false,
+      });
+      console.log("inside loginfomr", res);
+      if (res?.ok) {
+        toast.success("Sign In successful", { id: toastId });
+        router.push("/")
+      } else {
+        toast.error("Sign In failed", { id: toastId });
+      }
     } catch (err) {
       console.error(err);
     }
   };
 
   return (
-    <div className="min-w-sm w-full mx-auto p-6 rounded-2xl shadow-md shadow-primary  border">
+    <div className="min-w-sm w-full mx-auto p-6 rounded-2xl shadow-md shadow-primary border">
       <h2 className="text-2xl font-semibold mb-6">Sign in to your account</h2>
 
       <Form {...form}>
