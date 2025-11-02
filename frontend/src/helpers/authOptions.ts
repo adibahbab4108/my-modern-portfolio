@@ -1,6 +1,7 @@
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { NextAuthOptions } from "next-auth";
+import { log } from "@/utils/logger";
 
 declare module "next-auth" {
   interface Session {
@@ -46,7 +47,8 @@ export const authOptions: NextAuthOptions = {
         try {
           const baseApi = process.env.BASE_API;
           if (!baseApi) {
-            console.error("BASE_API not configured in environment variables");
+            if (process.env.NODE_ENV === "development")
+              console.error("BASE_API not configured in environment variables");
             throw new Error("Internal configuration error");
           }
 
@@ -60,14 +62,15 @@ export const authOptions: NextAuthOptions = {
           });
 
           const result = await res.json();
-          console.log("Result from backend", result.data.user);
-          if (result.success) {
+          if (process.env.NODE_ENV === "development" && result.data?.user)
+            log("Result from backend", result.data.user);
+          if (result.success && result.data?.user) {
             return result.data.user;
           } else {
-            console.log("Something Went wrong", result);
+            if (process.env.NODE_ENV === "development")
+            log("Something Went wrong", result);
             return null;
           }
-
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
           console.error(

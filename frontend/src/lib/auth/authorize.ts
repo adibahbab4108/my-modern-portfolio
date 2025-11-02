@@ -1,3 +1,7 @@
+"use server"
+
+import { log } from "@/utils/logger";
+
 export const authorize = async (credentials: Record<"email" | "password", string>) => {
   if (!credentials?.email || !credentials?.password) {
     console.error("❌ Missing email or password");
@@ -11,15 +15,19 @@ export const authorize = async (credentials: Record<"email" | "password", string
       throw new Error("Internal configuration error");
     }
 
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+
     const res = await fetch(`${baseApi}/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      signal: controller.signal,
       body: JSON.stringify({
         email: credentials.email.trim(),
         password: credentials.password,
       }),
     });
-
+    clearTimeout(timeoutId);
     if (!res.ok) {
       console.error(`⚠️ Login request failed with status ${res.status}`);
       return null;
@@ -41,7 +49,7 @@ export const authorize = async (credentials: Record<"email" | "password", string
       accessToken: result.accessToken, // if backend sends one
     };
 
-    console.log("Login success:", user.email);
+    log("Login success:", user.email);
     return user;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {

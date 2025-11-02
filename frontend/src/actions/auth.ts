@@ -1,8 +1,9 @@
 "use server";
+import { log } from "@/utils/logger";
 import { FieldValues } from "react-hook-form";
 
 export const register = async (data: FieldValues) => {
-  console.log("Received data:", data);
+  log("Received data:", data);
 
   const { confirmPassword, ...payload } = data;
 
@@ -11,8 +12,8 @@ export const register = async (data: FieldValues) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
-      // credentials: "include", // only if your backend uses cookies
-    });
+       credentials: "include",    
+      });
     const result = await res.json();
 
     if (!res.ok) {
@@ -22,7 +23,7 @@ export const register = async (data: FieldValues) => {
       };
     }
 
-    console.log("Register success:", result);
+    log("Register success:", result);
     return result;
   } catch (error) {
     console.error("Register error:", error);
@@ -54,10 +55,10 @@ export const login = async (data: FieldValues) => {
       };
     }
 
-    console.log("Login success:", result);
+    log("Login success:", result);
     return result;
   } catch (error) {
-    console.log(error);
+    log(error);
     const message =
       error instanceof Error
         ? error.message

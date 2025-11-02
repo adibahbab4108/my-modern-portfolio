@@ -15,6 +15,7 @@ import { LayoutDashboard, LogOut, UserRound } from "lucide-react";
 import { FaUser } from "react-icons/fa";
 import Image from "next/image";
 import { Button } from "./button";
+import { log } from "@/utils/logger";
 
 const gradientLineClass =
   "absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px";
@@ -32,8 +33,8 @@ export const Navbar = ({
 }) => {
   const [isLoading, setIsLoading] = useState(true);
   const session = useSession();
-  console.log(session);
-
+  
+  log({ status: session.status, isAuthenticated: !!session.data });
   useEffect(() => {
     setIsLoading(false);
   }, []);
@@ -86,13 +87,13 @@ export const Navbar = ({
                 <ul className="grid  gap-4">
                   <li>
                     <NavigationMenuLink asChild>
-                      <Link href="/profile" className="flex-row items-center gap-2">
+                      <Link href="/profile" className="flex flex-row items-center gap-2">
                         <UserRound />
                         Profile
                       </Link>
                     </NavigationMenuLink>
                     <NavigationMenuLink asChild>
-                      <Link href="/dashboard" className="flex-row items-center gap-2">
+                      <Link href="/dashboard" className="flex flex-row items-center gap-2">
                         <LayoutDashboard />
                         Dashboard
                       </Link>

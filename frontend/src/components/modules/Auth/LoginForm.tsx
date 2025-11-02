@@ -21,6 +21,7 @@ import HorizontalLineText from "@/components/shared/HorizontalLineText";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 import { toast } from "sonner";
+import { log } from "@/utils/logger";
 
 const loginSchema = z.object({
   email: z.string().min(1, "Email is required").email("Invalid email address"),
@@ -56,17 +57,16 @@ export default function LoginForm() {
       // } else {
       //   toast.error(`${result.message}`);
       // }
-      // console.log(result);
+      // log(result);
 
       const res = await signIn("credentials", {
         ...values,
         // callbackUrl: "/", // redirect to "/" after successful login
         redirect: false,
       });
-      console.log("inside loginfomr", res);
+      log("inside loginform", res);
       if (res?.ok) {
-        toast.success("Sign In successful", { id: toastId });
-        router.push("/")
+        router.push("/");
       } else {
         toast.error("Sign In failed", { id: toastId });
       }

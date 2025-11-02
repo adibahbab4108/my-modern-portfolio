@@ -20,6 +20,7 @@ import { Eye, EyeClosed } from "lucide-react";
 import { register } from "@/actions/auth";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { log } from "@/utils/logger";
 
 const registerSchema = z
   .object({
@@ -63,7 +64,7 @@ export default function RegisterForm() {
     try {
       const res = await register(values);
 
-      console.log("Submitted result", res);
+      log("Submitted result", res);
       if (res.success) {
         toast.success(`${res.message}`, {
           position: "bottom-right",
