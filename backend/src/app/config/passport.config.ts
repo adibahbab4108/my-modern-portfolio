@@ -6,7 +6,8 @@ import {
 } from "passport-google-oauth20";
 import envVariables from "./env.config";
 import { User } from "../modules/user/user.model";
-import { AuthProvider, IUser } from "../modules/user/user.interface";
+import {IUser } from "../modules/user/user.interface";
+import { AuthProvider } from "../modules/auth/auth.interface";
 
 passport.use(
   new GoogleStrategy(

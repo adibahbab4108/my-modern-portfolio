@@ -10,8 +10,8 @@ export const globalErrorHandler = (
   next: NextFunction
 ) => {
   res.status(500).json({
-    message: "From global handler:Internal Server Error",
-    error: err.message,
+    message: err.message,
+    error: "Something went wrong on the server",
     stack: envVariables.NODE_ENV === "development" ? err.stack : null,
   });
 };

@@ -6,6 +6,22 @@ import { generateUserToken } from "../../utils/generateUserToken";
 import { setAuthCookie } from "../../utils/setCookie";
 import { IUser } from "../user/user.interface";
 
+
+const createUser = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const user = await AuthService.createUser(req.body);
+
+    sendResponse(res, {
+      statusCode: 201,
+      success: true,
+      message: "User created successfully",
+      data: user,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 const credentialsLogin = async (
   req: Request,
   res: Response,
@@ -91,6 +107,7 @@ const googleCallbackController = async (
 };
 
 export const AuthController = {
+  createUser,
   credentialsLogin,
   logout,
   getNewAccessToken,

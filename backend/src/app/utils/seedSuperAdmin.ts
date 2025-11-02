@@ -1,9 +1,8 @@
 /* eslint-disable no-console */
 
 import envVariables from "../config/env.config";
+import { AuthProvider, IAuthProvider } from "../modules/auth/auth.interface";
 import {
-  AuthProvider,
-  IAuthProvider,
   IUser,
   Role,
 } from "../modules/user/user.interface";
